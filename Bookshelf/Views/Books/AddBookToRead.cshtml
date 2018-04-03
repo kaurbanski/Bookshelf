@@ -1,0 +1,31 @@
+﻿<link href="~/Content/SearchBookStyle.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "AddBook";
+}
+
+<h2>AddBook</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group">
+            <input type="text" id="search-book-input" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-info" id="search-button" type="button">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div><!-- /input-group -->
+    </div>
+</div>
+<div id="search-book-partial">
+
+</div>
+<div class="text-center">
+    <button class="btn btn-success btn-sm" id="loadMoreButton">
+        LOAD MORE <span class="glyphicon glyphicon-arrow-down"></span>
+    </button>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/custom-scripts/search-book.js"></script>
+}

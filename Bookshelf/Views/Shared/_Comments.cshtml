@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Bookshelf.Models.ViewModels.CommentInfoViewModel>
+<h2>Comments:</h2>
+<div class="row">
+    <div class="comments-section">
+        <div class="col-md-12 leave-comment">
+            <textarea cols="30" rows="4" placeholder="Add comment..."></textarea>
+            <button class="btn btn-sm btn-default pull-right submit-button">ADD</button>
+        </div>
+        @foreach (var comment in Model)
+        {
+            <div class="col-md-12 ">
+                <div class="comment-block">
+                    <div class="panel panel-default">
+                        <div class="comment-date">@comment.AddedDate</div>
+                        <p class="comment-text">
+                            @comment.Text
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*<div class="comments">
+        <div class="comment-wrap">
+            <div class="comment-block">
+                <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+            </div>
+        </div>
+        <button class="btn btn-default btn-sm pull-right" id="submit-form-button">ADD</button>
+        <div class="comment-wrap">
+            <div class="comment-block">
+                <p class="comment-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                    sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?
+                </p>
+                <div class="bottom-comment">
+                    <div class="comment-date">Aug 24, 2014  2:35 PM</div>
+                </div>
+            </div>
+        </div>
+        <div class="comment-wrap">
+
+            <div class="comment-block">
+                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
+                <div class="bottom-comment">
+                    <div class="comment-date">Aug 23, 2014  10:32 AM</div>
+                </div>
+            </div>
+        </div>
+    </div>*@

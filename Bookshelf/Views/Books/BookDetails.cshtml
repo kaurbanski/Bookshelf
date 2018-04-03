@@ -1,0 +1,105 @@
+﻿@model Bookshelf.Models.Volume
+@{
+    ViewBag.Title = "BookDetails";
+}
+
+@section BookDetailsCustomStyle{
+    <link href="~/Content/BookDetails.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="row">
+    <div class="col-md-11">
+        <h2 text-center>
+            @Model.VolumeInfo.Title
+        </h2>
+    </div>
+    <div class="col-md-1">
+        <span class="" id="add-book-icon"></span>
+    </div>
+
+
+    <div class="col-md-12">
+        <div class="media">
+
+            <div class="media-left media-top">
+                @if (Model.VolumeInfo.ImageLinks.Thumbnail == "")
+                {
+                    <img class="media-object" src="~/Content/Images/image-not-found.jpg" alt="Thumbnail of @Model.VolumeInfo.Title">
+                }
+                else
+                {
+                    <img class="media-object" src="@Model.VolumeInfo.ImageLinks.Thumbnail" alt="Thumbnail of @Model.VolumeInfo.Title">
+                }
+            </div>
+            <div class="media-body">
+                <p>
+                    <b>Subtitle: </b>@Model.VolumeInfo.Subtitle
+                </p>
+                <p>
+                    <b>Author: </b>
+                    @foreach (var author in Model.VolumeInfo.Authors)
+                    {
+                        @author
+                        <br />
+                    }
+                </p>
+                <p>
+                    <b>Publisher: </b>@Model.VolumeInfo.Publisher
+                </p>
+                <p>
+                    <b>Published date: </b>@Model.VolumeInfo.PublishedDate
+                </p>
+                <p>
+                    <b>Pages: </b>@Model.VolumeInfo.PageCount
+                </p>
+                <p>
+                    <b>GoogleBook rating count: </b>@Model.VolumeInfo.RatingsCount
+                </p>
+                <p>
+                    <b>GoogleBook average rating: </b>@Model.VolumeInfo.AverageRating
+                </p>
+                <p>
+                    <b>Categories: </b>
+                    @foreach (var category in Model.VolumeInfo.Categories)
+                    {
+                        @(category + ",")
+                    }
+                </p>
+
+
+                <b>Description: </b>
+                @Html.Raw(Model.VolumeInfo.Description)
+            </div>
+        </div>
+    </div>
+</div>
+<div id="comments-section">
+
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/custom-scripts/book-details.js"></script>
+    <script>
+        @{ string authors = String.Join(",", Model.VolumeInfo.Authors); }
+        var jsonObject = {
+            "Title": '@Model.VolumeInfo.Title',
+            "GoogleId": '@Model.Id',
+            "Authors": '@authors',
+            "ImageLink": '@Model.VolumeInfo.ImageLinks.Thumbnail'
+        };
+        $(document).ready(function () {
+            IsBookAddedToBookshelf('@Model.Id');
+
+
+            $('#add-book-icon').click(function () {
+                AddBookAjax(jsonObject);
+            });
+
+
+
+            LoadComments('@Model.Id');
+        })
+    </script>
+}

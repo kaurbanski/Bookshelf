@@ -1,0 +1,29 @@
+﻿@section AddDatatablesToHead{
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewBag.Title = "UserBooks";
+}
+<h2>UserBooks</h2>
+<div class="row">
+    <table id="user-books-datatable" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th class="col-md-1">Picture</th>
+                <th class="col-md-4">Title</th>
+                <th class="col-md-3">Authors</th>
+                <th class="col-md-2">Added date</th>
+                <th class="col-md-1">Read</th>
+                <th class="col-md-1">Delete</th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/custom-scripts/user-books.js"></script>
+}

@@ -1,0 +1,48 @@
+﻿@model Bookshelf.Models.BooksVolume
+
+    @foreach (var book in Model.Items)
+    {
+        <div class="col-md-12">
+            <div class="media">
+                <div class="media-left media-top">
+                    <a href="#">
+                        @if (book.VolumeInfo.ImageLinks.Thumbnail == "")
+                        {
+                            <img class="media-object" src="~/Content/Images/image-not-found.jpg" alt="Thumbnail of @book.VolumeInfo.Title">
+                        }
+                        else
+                        {
+                            <img class="media-object" src="@book.VolumeInfo.ImageLinks.Thumbnail" alt="Thumbnail of @book.VolumeInfo.Title">
+                        }
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h3 class="media-heading">
+                        @Html.ActionLink(book.VolumeInfo.Title, "BookDetails", "Books", new { id = book.Id }, null)
+                    </h3>
+                    <p>
+                        <b>Subtitle: </b>@book.VolumeInfo.Subtitle
+                    </p>
+                    <p>
+                        <b>Author: </b>
+                        @foreach (var author in book.VolumeInfo.Authors)
+                        {
+                            @(author + ",")
+                        }
+                    </p>
+                    <p>
+                        <b>Publisher: </b>@book.VolumeInfo.Publisher
+                    </p>
+                    <p>
+                        <b>Published date: </b>@book.VolumeInfo.PublishedDate
+                    </p>
+                    <p>
+                        <b>Pages: </b>@book.VolumeInfo.PageCount
+                    </p>
+                    <p>
+                        <b>Description: </b>
+                    </p> @book.VolumeInfo.Description
+                </div>
+            </div>
+        </div>
+    }
