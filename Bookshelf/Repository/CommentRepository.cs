@@ -27,9 +27,9 @@ namespace Bookshelf.Repository
             return _context.Comments.AsQueryable();
         }
 
-        public async Task<IEnumerable<Comment>> GetByGoogleBookId(string googleBookId)
+        public async Task<List<Comment>> GetByGoogleBookId(string googleBookId)
         {
-            return await _context.Comments.Where(x => x.Book.GoogleId == googleBookId).ToListAsync();
+            return await _context.Comments.Where(x => x.Book.GoogleId == googleBookId).OrderByDescending(x => x.AddedDate).ToListAsync();
         }
     }
 }

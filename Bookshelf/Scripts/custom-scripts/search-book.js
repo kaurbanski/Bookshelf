@@ -10,6 +10,7 @@ $('input').keypress(function (event) {
 $('#search-button').click(function () {
     startIndex = 0;
     size = 30;
+    $('#loadMoreButton').hide();
     $('#search-book-partial').html('');
     LoadData();
 });
@@ -20,6 +21,7 @@ $('#loadMoreButton').click(function () {
 
 function LoadData() {
     var search = $('input#search-book-input').val();
+    $('div.loader-section').addClass('loader');
 
     $.ajax({
         url: '/Books/GetBooksByPhrase',
@@ -34,11 +36,13 @@ function LoadData() {
         success: function (data) {
             if (!$.trim(data)) {
                 $('#loadMoreButton').hide();
+
             } else {
                 startIndex = startIndex + size;
                 $('#search-book-partial').append(data);
                 $('#loadMoreButton').show();
             }
+            $('div.loader-section').removeClass('loader');
         }
     })
 }

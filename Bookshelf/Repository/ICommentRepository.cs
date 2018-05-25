@@ -11,6 +11,6 @@ namespace Bookshelf.Repository
     {
         Comment Add(Comment comment);
         IQueryable<Comment> GetAllAsQueryable();
-        Task<IEnumerable<Comment>> GetByGoogleBookId(string googleBookId);
+        Task<List<Comment>> GetByGoogleBookId(string googleBookId);
     }
 }

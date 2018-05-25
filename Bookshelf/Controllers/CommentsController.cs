@@ -27,8 +27,8 @@ namespace Bookshelf.Controllers
         [HttpGet]
         public async Task<ActionResult> GetCommentsForBook(string bookId)
         {
-            IEnumerable<Comment> comments = null;
-            IEnumerable<CommentInfoViewModel> model = new List<CommentInfoViewModel>();
+            List<Comment> comments = null;
+            List<CommentInfoViewModel> model = new List<CommentInfoViewModel>();
             try
             {
                 comments = await _unitOfWork.CommentRepository.GetByGoogleBookId(bookId);
@@ -37,7 +37,7 @@ namespace Bookshelf.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
             }
-            model = _mapper.Map<IEnumerable<CommentInfoViewModel>>(comments);
+            model = _mapper.Map<List<CommentInfoViewModel>>(comments);
             return PartialView("_Comments", model);
         }
 

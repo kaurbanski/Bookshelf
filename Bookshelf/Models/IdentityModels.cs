@@ -42,5 +42,6 @@ namespace Bookshelf.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Shelf> Bookshelfs { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Quotation> Quotations { get; set; }
     }
 }

@@ -4,6 +4,13 @@
 @{
     ViewBag.Title = "UserBooks";
 }
+
+@section scripts{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/custom-scripts/user-books.js"></script>
+}
+
 <h2>UserBooks</h2>
 <div class="row">
     <table id="user-books-datatable" class="table table-bordered">
@@ -22,8 +29,8 @@
     </table>
 </div>
 
-@section scripts{
-    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
-    <script src="~/Scripts/custom-scripts/user-books.js"></script>
-}
+<div class="comment-success" style="display:none;">
+    <p>Book removed success!</p>
+</div>
+
+

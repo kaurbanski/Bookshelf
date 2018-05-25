@@ -5,7 +5,10 @@
 // Load and render datatable, data fetch by ajax
 function loadDatatables() {
     $('#user-books-datatable').DataTable({
-        "processing": true,
+        processing: true,
+        "language": {
+            processing: '<div class="loader-section loader"></div>'
+        },
         "deferRender": false,
         "ajax": "/Books/GetUserBookshelf",
         "columns": [
@@ -115,6 +118,9 @@ function prepareButtonsForChangeReadingOfBook() {
 
 function prepareRemoveButtons() {
     $("#user-books-datatable tbody").on("click", "span.glyphicon.glyphicon-trash", function () {
+        if (!confirm("Are you sure to delete this item?")) {
+            return false;
+        }
         var dataTable = $('#user-books-datatable').DataTable();
         var $par = $(this).parent();
         var tbody = $(this);
@@ -132,6 +138,7 @@ function prepareRemoveButtons() {
             success: function (result) {
                 if (result == "success") {
                     dataTable.row(tbody.parents('tr')).remove().draw();
+                    $('.comment-success').fadeIn(500).delay(1000).fadeOut(500);
                 } else {
                     alert("Something went wrong!");
                 }

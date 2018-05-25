@@ -20,5 +20,6 @@ namespace Bookshelf.Models.ViewModels
         public int BookId { get; private set; }
         public string Text { get; private set; }
         public DateTime AddedDate { get; private set; }
+        public UserCommentViewModel User { get; private set; }
     }
 }

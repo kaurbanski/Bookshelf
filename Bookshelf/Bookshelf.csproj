@@ -236,6 +236,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuotationController.cs" />
     <Compile Include="Exceptions\ApiConnectionException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,7 +253,16 @@
     <Compile Include="Migrations\201803282038520_comments-date.Designer.cs">
       <DependentUpon>201803282038520_comments-date.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805231526268_quotations.cs" />
+    <Compile Include="Migrations\201805231526268_quotations.Designer.cs">
+      <DependentUpon>201805231526268_quotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231529175_quotations1.cs" />
+    <Compile Include="Migrations\201805231529175_quotations1.Designer.cs">
+      <DependentUpon>201805231529175_quotations1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Quotation.cs" />
     <Compile Include="Models\ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\ViewModels\BooksViewModel.cs" />
@@ -263,10 +273,13 @@
     <Compile Include="Models\ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Shelf.cs" />
     <Compile Include="Models\ViewModels\ShelfViewModels.cs" />
+    <Compile Include="Models\ViewModels\UsersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\CommentRepository.cs" />
     <Compile Include="Repository\ICommentRepository.cs" />
+    <Compile Include="Repository\IQuotationRepository.cs" />
+    <Compile Include="Repository\QuotationRepository.cs" />
     <Compile Include="Repository\ShelfRepository.cs" />
     <Compile Include="Repository\IBookRepository.cs" />
     <Compile Include="Repository\IShelfRepository.cs" />
@@ -440,6 +453,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\Images\avatar_user.png" />
     <Content Include="Content\Images\bookshelf.jpg" />
+    <Content Include="Content\Images\Favicons\favicon.ico" />
     <Content Include="Content\Images\image-not-found.jpg" />
     <Content Include="Content\SearchBookStyle.css" />
     <Content Include="favicon.ico" />
@@ -551,6 +565,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\bookshelf.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -624,6 +639,7 @@
     <Content Include="Views\Books\BookDetails.cshtml" />
     <Content Include="Views\Books\UserBooks.cshtml" />
     <Content Include="Views\Shared\_Comments.cshtml" />
+    <Content Include="Views\Quotation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -648,6 +664,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803282038520_comments-date.resx">
       <DependentUpon>201803282038520_comments-date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231526268_quotations.resx">
+      <DependentUpon>201805231526268_quotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231529175_quotations1.resx">
+      <DependentUpon>201805231529175_quotations1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

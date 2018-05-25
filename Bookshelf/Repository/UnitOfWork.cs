@@ -13,6 +13,7 @@ namespace Bookshelf.Repository
         public IBookRepository BookRepository { get; private set; }
         public IShelfRepository BookshelfRepository { get; private set; }
         public ICommentRepository CommentRepository { get; private set; }
+        public IQuotationRepository QuotationRepository { get; private set; }
 
         public UnitOfWork(IApplicationDbContext context)
         {
@@ -20,6 +21,7 @@ namespace Bookshelf.Repository
             BookRepository = new BookRepository(_context);
             BookshelfRepository = new ShelfRepository(_context);
             CommentRepository = new CommentRepository(_context);
+            QuotationRepository = new QuotationRepository(_context);
         }
 
         public async Task<int> CompleteAsync()

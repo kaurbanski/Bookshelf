@@ -3,22 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon icon" type="image/x-icon" href="~/Content/Images/Favicons/favicon.ico" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @if (IsSectionDefined("AddDatatablesToHead"))
-    {
-        @RenderSection("AddDatatablesToHead", required: false)
-    }
 
-    @if (IsSectionDefined("BookDetailsCustomStyle"))
-    {
-        @RenderSection("BookDetailsCustomStyle", required: false)
-    }
+    @RenderSection("AddDatatablesToHead", required: false)
+    @RenderSection("BookDetailsCustomStyle", required: false)
+
 
 </head>
 <body>
-    <div class="navbar navbar-default navbar-custom-style">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,8 +37,8 @@
                                 <li>@Html.ActionLink("Your bookshelf", "UserBooks", "Books")</li>
                                 <li>@Html.ActionLink("Add a book", "AddBookToRead", "Books")</li>
                                 @*<li>@Html.ActionLink("Rate a book", "", "")</li>*@
-                                @*<li>@Html.ActionLink("Add quote", "", "")</li>
-                                    <li>@Html.ActionLink("Proposed books", "", "")</li>*@
+                                <li>@Html.ActionLink("Your quotations", "Index", "Quotation")</li>
+                                    @*<li>@Html.ActionLink("Proposed books", "", "")</li>*@
                             </ul>
                         </li>
                     }
@@ -58,10 +54,13 @@
         @RenderBody()
     </div>
 
-    <hr />
     <footer class="footer">
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <div class="container">
+            <p class="text-muted">&copy; @DateTime.Now.Year - Bookshelf Application</p>
+        </div>
     </footer>
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,29 @@
+﻿.left {
+    background-color: red;
+    min-height: 100px;
+    width: 40%;
+    float: left;
+    opacity: 0.5;
+}
+
+.right {
+    background-color: green;
+    min-height: 100px;
+    width: 60%;
+    float: left;
+    opacity: 0.5;
+}
+
+.sma {
+    min-height: 20px;
+    width: 50%;
+    background-color: orange;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.img-resp {
+    height: auto;
+    width: 100%;
+}

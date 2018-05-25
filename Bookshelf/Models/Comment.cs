@@ -10,7 +10,7 @@ namespace Bookshelf.Models
     {
         public Comment()
         {
-            AddedDate = DateTime.UtcNow;
+            AddedDate = DateTime.Now;
         }
 
         [Required]

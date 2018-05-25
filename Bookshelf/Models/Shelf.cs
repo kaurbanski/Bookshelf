@@ -14,7 +14,7 @@ namespace Bookshelf.Models
         }
         public Shelf(int bookId, string userId)
         {
-            AddedDate = DateTime.Now;
+            AddedDate = DateTime.UtcNow;
             BeenRead = false;
             BookId = bookId;
             UserId = userId;

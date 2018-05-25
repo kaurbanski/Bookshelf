@@ -13,6 +13,7 @@ namespace Bookshelf.Models
         DbSet<Book> Books { get; set; }
         DbSet<Shelf> Bookshelfs { get; set; }
         DbSet<Comment> Comments { get; set; }
+        DbSet<Quotation> Quotations { get; set; }
         int SaveChanges();
         DbEntityEntry Entry(object entity);
         Task<int> SaveChangesAsync();

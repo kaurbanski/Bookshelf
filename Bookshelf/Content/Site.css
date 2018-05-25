@@ -6,6 +6,81 @@
    will truncate terms that are too long to fit in the left column 
 */
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.body-content{
+    margin-top: 100px;
+}
+
+.comment-success {
+    min-height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background-color: springgreen;
+    position: fixed;
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.comment-success p {
+    color: #3e3e3e;
+}
+
+.footer {
+    border-top: 1px solid #e0e0e0;
+    position: absolute;
+    bottom: 0;
+    line-height: 50px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 50px;
+}
+
+
+.visible {
+    display: block;
+}
+
+.comment-added-message {
+    margin-top: 20px;
+    padding: 0;
+}
+
+.loader-section {
+    margin: 20px auto;
+}
+
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 .dl-horizontal dt {
     white-space: normal;
@@ -19,7 +94,7 @@
 /* NAVBAR*/
 
 .navbar {
-    margin-bottom: 0;
+
 }
 
 .navbar-default {

@@ -11,6 +11,7 @@ namespace Bookshelf.Repository
         IBookRepository BookRepository { get; }
         IShelfRepository BookshelfRepository { get; }
         ICommentRepository CommentRepository { get; }
+        IQuotationRepository QuotationRepository { get; }
         Task<int> CompleteAsync();
     }
 }

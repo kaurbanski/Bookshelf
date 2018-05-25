@@ -1,10 +1,10 @@
 ﻿<link href="~/Content/SearchBookStyle.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "AddBook";
+    ViewBag.Title = "Search book";
 }
 
-<h2>AddBook</h2>
+<h2>Search book</h2>
 <div class="row">
     <div class="col-md-6">
         <div class="input-group">
@@ -15,15 +15,23 @@
                 </button>
             </span>
         </div><!-- /input-group -->
+
     </div>
+
 </div>
 <div id="search-book-partial">
 
 </div>
+
+
 <div class="text-center">
     <button class="btn btn-success btn-sm" id="loadMoreButton">
         LOAD MORE <span class="glyphicon glyphicon-arrow-down"></span>
     </button>
+</div>
+
+<div class="loader-section">
+
 </div>
 
 @section scripts{

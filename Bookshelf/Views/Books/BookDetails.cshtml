@@ -13,12 +13,11 @@
             @Model.VolumeInfo.Title
         </h2>
     </div>
-    <div class="col-md-1">
-        <span class="" id="add-book-icon"></span>
-    </div>
+
 
 
     <div class="col-md-12">
+        <span class="" id="add-book-icon"></span>
         <div class="media">
 
             <div class="media-left media-top">
@@ -73,13 +72,27 @@
         </div>
     </div>
 </div>
+
+<h2>Comments:</h2>
+
+<div class="col-md-12 leave-comment hide">
+    <textarea cols="30" rows="4" placeholder="Add comment..."></textarea>
+    <button class="btn btn-sm btn-success pull-right submit-button">
+        ADD
+
+    </button>
+</div>
+
 <div id="comments-section">
 
 </div>
 
 
 
+
+
 @section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/custom-scripts/book-details.js"></script>
     <script>
         @{ string authors = String.Join(",", Model.VolumeInfo.Authors); }
@@ -90,16 +103,7 @@
             "ImageLink": '@Model.VolumeInfo.ImageLinks.Thumbnail'
         };
         $(document).ready(function () {
-            IsBookAddedToBookshelf('@Model.Id');
-
-
-            $('#add-book-icon').click(function () {
-                AddBookAjax(jsonObject);
-            });
-
-
-
-            LoadComments('@Model.Id');
+            LoadBookDetailsPage(jsonObject);
         })
     </script>
 }

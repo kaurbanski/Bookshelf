@@ -17,6 +17,7 @@ namespace Bookshelf.AutoMapper
             CreateMap<BookViewModel, Book>().ReverseMap();
             CreateMap<AddCommentViewModel, Comment>().ReverseMap();
             CreateMap<CommentInfoViewModel, Comment>().ReverseMap();
+            CreateMap<ApplicationUser, UserCommentViewModel>().ReverseMap();
         }
     }
 }
